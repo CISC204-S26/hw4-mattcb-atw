@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://b7mw1k6j17rwh"]
+
+[ext_resource type="Script" uid="uid://duhq6jkmsxjjb" path="res://character_body_2d.gd" id="1_ij6vw"]
+[ext_resource type="Texture2D" uid="uid://c1okj6uxaoub5" path="res://HK head.png" id="2_ghijl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_44cfe"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dd465"]
+
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=991010574]
+script = ExtResource("1_ij6vw")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=645629129]
+texture = ExtResource("2_ghijl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2075656899]
+shape = SubResource("RectangleShape2D_44cfe")
+
+[node name="InteractionDetector" type="Area2D" parent="." unique_id=2111653920]
+light_mask = 2
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionDetector" unique_id=1255306525]
+shape = SubResource("RectangleShape2D_dd465")
+
+[connection signal="area_entered" from="InteractionDetector" to="." method="_on_interaction_detector_area_entered"]
+[connection signal="area_exited" from="InteractionDetector" to="." method="_on_interaction_detector_area_exited"]
