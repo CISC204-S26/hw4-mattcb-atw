@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://02tcli4084h4"]
+
+[ext_resource type="Texture2D" uid="uid://ck8aua6u13o7y" path="res://Tileset/Floor.png" id="1_wm4b4"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_wm4b4"]
+
+[node name="Node2D" type="Node2D" unique_id=1720171151]
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="." unique_id=1024637707]
+position = Vector2(80.75001, 41.749996)
+scale = Vector2(162.50002, 84.49999)
+mesh = SubResource("BoxMesh_wm4b4")
+texture = ExtResource("1_wm4b4")

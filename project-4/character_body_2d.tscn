@@ -1,30 +1,56 @@
 [gd_scene format=3 uid="uid://b7mw1k6j17rwh"]
 
-[ext_resource type="Script" uid="uid://duhq6jkmsxjjb" path="res://character_body_2d.gd" id="1_ij6vw"]
 [ext_resource type="Texture2D" uid="uid://c1okj6uxaoub5" path="res://HK head.png" id="2_ghijl"]
-[ext_resource type="Script" uid="uid://b5cykw2xxr2a" path="res://collectable.gd" id="3_ghijl"]
+
+[sub_resource type="GDScript" id="GDScript_ij6vw"]
+script/source = "extends CharacterBody2D
+
+var nearby_interactables = []
+const SPEED = 300.0
+const JUMP_VELOCITY = -400.0
+
+
+func _physics_process(delta: float) -> void:
+	# Get the input direction and handle the movement/deceleration.
+	# As good practice, you should replace UI actions with custom gameplay actions.
+	var direction := Input.get_axis(\"ui_left\", \"ui_right\")
+	velocity.x = direction * SPEED
+	
+	var verticaldirection := Input.get_axis(\"ui_up\", \"ui_down\")
+	velocity.y = verticaldirection * SPEED
+	
+	if Input.is_action_just_pressed(\"Interact\"):
+		if nearby_interactables:
+			nearby_interactables.back().interact()
+
+	move_and_slide()
+
+
+func _on_interaction_detector_area_entered(area: Area2D) -> void:
+	area.set_active(true)
+	nearby_interactables.append (area)
+
+
+func _on_interaction_detector_area_exited(area: Area2D) -> void:
+	nearby_interactables.remove()
+"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_44cfe"]
+size = Vector2(50, 46)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dd465"]
-size = Vector2(108, 130)
-
-[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_44cfe"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_lhvu3"]
-size = Vector2(105.25, 87.75)
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_4sjlk"]
-size = Vector2(20, 20)
+size = Vector2(96, 56)
 
 [node name="Player" type="CharacterBody2D" unique_id=991010574]
-script = ExtResource("1_ij6vw")
+script = SubResource("GDScript_ij6vw")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=645629129]
-position = Vector2(94, 174)
+position = Vector2(2.0000038, -1)
+scale = Vector2(0.17567568, 0.21538462)
 texture = ExtResource("2_ghijl")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2075656899]
+position = Vector2(2, -1)
 shape = SubResource("RectangleShape2D_44cfe")
 
 [node name="InteractionDetector" type="Area2D" parent="." unique_id=2111653920]
@@ -34,21 +60,8 @@ collision_mask = 0
 monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionDetector" unique_id=1255306525]
-position = Vector2(90, 185)
+position = Vector2(4, -1)
 shape = SubResource("RectangleShape2D_dd465")
-
-[node name="Collectable" type="StaticBody2D" parent="." unique_id=268984940]
-material = SubResource("CanvasItemMaterial_44cfe")
-position = Vector2(-542, 584)
-script = ExtResource("3_ghijl")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Collectable" unique_id=416758554]
-position = Vector2(215, -389)
-shape = SubResource("RectangleShape2D_lhvu3")
-
-[node name="Sprite2D" type="Sprite2D" parent="Collectable" unique_id=1362831099]
-position = Vector2(207, -391)
-texture = SubResource("PlaceholderTexture2D_4sjlk")
 
 [connection signal="area_entered" from="InteractionDetector" to="." method="_on_interaction_detector_area_entered"]
 [connection signal="area_exited" from="InteractionDetector" to="." method="_on_interaction_detector_area_exited"]
