@@ -1,26 +1,23 @@
 [gd_scene format=3 uid="uid://ksxd051c2dg0"]
 
 [ext_resource type="Script" uid="uid://b5cykw2xxr2a" path="res://collectable.gd" id="1_svjgs"]
+[ext_resource type="Texture2D" uid="uid://umbyx7k7nfgy" path="res://Tileset/Key.png" id="2_ysl24"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ysl24"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_wrr4v"]
-size = Vector2(36.15625, 36.71875)
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_d14by"]
-size = Vector2(20, 20)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ysl24"]
 
 [node name="Node2D" type="Node2D" unique_id=1203738865]
 
 [node name="Collectable" type="StaticBody2D" parent="." unique_id=1784880208]
 material = SubResource("CanvasItemMaterial_ysl24")
-position = Vector2(-542, 584)
+position = Vector2(20, 4)
 script = ExtResource("1_svjgs")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Collectable" unique_id=1633999440]
-position = Vector2(542, -584)
-shape = SubResource("RectangleShape2D_wrr4v")
-
 [node name="Sprite2D" type="Sprite2D" parent="Collectable" unique_id=70853844]
-position = Vector2(540, -586)
-texture = SubResource("PlaceholderTexture2D_d14by")
+position = Vector2(-20, -4)
+texture = ExtResource("2_ysl24")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Collectable" unique_id=1088441017]
+position = Vector2(-20, -4)
+shape = SubResource("RectangleShape2D_ysl24")
