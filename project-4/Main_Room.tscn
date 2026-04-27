@@ -16,6 +16,10 @@
 [ext_resource type="Texture2D" uid="uid://def5puuy3qvra" path="res://Tileset/DoubleDoor.png" id="13_dng8x"]
 [ext_resource type="Texture2D" uid="uid://dnegjhge3fbc7" path="res://Tileset/Torch.png" id="15_rxehy"]
 [ext_resource type="Texture2D" uid="uid://bneorw66wudw6" path="res://Tileset/Trapdoor.png" id="16_tpgmm"]
+[ext_resource type="Script" uid="uid://ciemnoauacirp" path="res://Door.gd" id="17_qkgo3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qkgo3"]
+size = Vector2(42, 36)
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_48huu"]
 
@@ -378,10 +382,17 @@ sources/6 = SubResource("TileSetAtlasSource_48huu")
 sources/7 = SubResource("TileSetAtlasSource_6i4ek")
 sources/8 = SubResource("TileSetAtlasSource_q3ijw")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tpgmm"]
+size = Vector2(27, 29)
+
 [node name="Node2D" type="Node2D" unique_id=321926150]
 
 [node name="Player" parent="." unique_id=991010574 instance=ExtResource("1_1usla")]
 position = Vector2(574, 326)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Player" unique_id=315804624]
+position = Vector2(2, 0)
+shape = SubResource("RectangleShape2D_qkgo3")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=621843665]
 position = Vector2(575, 316)
@@ -419,3 +430,16 @@ use_kinematic_bodies = true
 [node name="Above" type="TileMapLayer" parent="TileMap2" unique_id=143247820]
 tile_map_data = PackedByteArray("AAAYAAoABQAAAAAAAAAiAAoABQAAAAAAAAAlAAoABQAAAAAAAAAvAAoABQAAAAAAAAASAA4ACAAAAAAAAAASAA8ACAAAAAEAAAArAAoABgAFAAQAAAAsAAoABgAGAAQAAAAfAAoABgAEAAUAAAAgAAoABgAFAAUAAAAwAAsAAgAAAAEAAAAaAAsAAgAAAAEAAAASAAsAAgAAAAEAAAA1AAsAAgAAAAEAAAASAAwABgAGAAIAAAATAAwABgAGAAIAAAASAA0ABgAGAAIAAAATAA0ABgAGAAIAAAATAAsABgAGAAIAAAAUAAsABgAGAAIAAAAUAAwABgAGAAIAAAAVAAsABgAGAAIAAAA0AAsABgAGAAIAAAAzAAsABgAGAAIAAAAzAAwABgAGAAIAAAA0AAwABgAGAAIAAAA1AAwABgAGAAIAAAA1AA0ABgAGAAIAAAA0AA0ABgAGAAIAAAAyAAsABgAGAAIAAAA1AA4ABgAGAAIAAAAVABEABgABAAUAAAAgAAwABgABAAUAAAAyAA8ABgABAAUAAAAyABYABgABAAUAAAAoABsABgABAAUAAAAbABkABgABAAUAAAAqAAoABgAEAAMAAAAeAAoABgAEAAMAAAASABEABgAFAAIAAAASABAABgAFAAEAAAASABIABgAFAAEAAAASABMABgAFAAIAAAAjAAsABgABAAEAAAAkAAsABgACAAEAAAAjAAwABgABAAEAAAAkAAwABgACAAEAAAAjAA0ABgABAAEAAAAkAA0ABgACAAEAAAAjAA4ABgABAAEAAAAkAA4ABgACAAEAAAAjAA8ABgABAAEAAAAkAA8ABgACAAEAAAAjABAABgABAAEAAAAkABAABgACAAEAAAA1ABgACAAAAAAAAAA1ABkACAAAAAEAAAA1ABEAAAAAAAAAAAA1ABIAAAAAAAEAAAA2ABEAAAABAAAAAAA2ABIAAAABAAEAAAAUABoACAAAAAEAAAAUABkACAAAAAAAAAASABQABgAFAAEAAAASABUABgAFAAIAAAASABsACAAAAAAAAAA=")
 tile_set = SubResource("TileSet_dsreg")
+
+[node name="Door_to_side1" type="Area2D" parent="." unique_id=1735054545]
+script = ExtResource("17_qkgo3")
+next_scene = "res://Second_Room.tscn"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Door_to_side1" unique_id=334821575]
+light_mask = 2
+visibility_layer = 2
+position = Vector2(854, 293)
+shape = SubResource("RectangleShape2D_tpgmm")
+debug_color = Color(0, 0.50980395, 0.69803923, 0.41960785)
+
+[connection signal="body_entered" from="Door_to_side1" to="Door_to_side1" method="_on_body_entered"]
