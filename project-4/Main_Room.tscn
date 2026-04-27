@@ -389,6 +389,7 @@ size = Vector2(27, 29)
 radius = 25.019993
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u6e1d"]
+size = Vector2(47, 37.5)
 
 [node name="Node2D" type="Node2D" unique_id=321926150]
 
@@ -466,11 +467,13 @@ position = Vector2(601, 182)
 shape = SubResource("CircleShape2D_qkgo3")
 
 [node name="Door_to_final" type="Area2D" parent="." unique_id=1043036920]
+position = Vector2(574, 167)
 script = ExtResource("17_qkgo3")
 next_scene = "res://final_room.tscn"
 is_final_door = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Door_to_final" unique_id=1835703955]
+position = Vector2(-1.5, -3.25)
 shape = SubResource("RectangleShape2D_u6e1d")
 
 [connection signal="body_entered" from="Door_to_side1" to="Door_to_side1" method="_on_body_entered"]
