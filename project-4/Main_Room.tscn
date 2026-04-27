@@ -388,6 +388,8 @@ size = Vector2(27, 29)
 [sub_resource type="CircleShape2D" id="CircleShape2D_qkgo3"]
 radius = 25.019993
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u6e1d"]
+
 [node name="Node2D" type="Node2D" unique_id=321926150]
 
 [node name="Player" parent="." unique_id=991010574 instance=ExtResource("1_1usla")]
@@ -456,14 +458,23 @@ position = Vector2(857, 367)
 shape = SubResource("RectangleShape2D_tpgmm")
 debug_color = Color(0, 0.50980395, 0.69803923, 0.41960785)
 
-[node name="Area2D" type="Area2D" parent="." unique_id=1849463066]
+[node name="Sign1" type="Area2D" parent="." unique_id=1849463066]
 position = Vector2(0, -1)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1751854799]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sign1" unique_id=1751854799]
 position = Vector2(601, 182)
 shape = SubResource("CircleShape2D_qkgo3")
 
+[node name="Door_to_final" type="Area2D" parent="." unique_id=1043036920]
+script = ExtResource("17_qkgo3")
+next_scene = "res://final_room.tscn"
+is_final_door = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Door_to_final" unique_id=1835703955]
+shape = SubResource("RectangleShape2D_u6e1d")
+
 [connection signal="body_entered" from="Door_to_side1" to="Door_to_side1" method="_on_body_entered"]
 [connection signal="body_entered" from="Door_to_side2" to="Door_to_side2" method="_on_body_entered"]
-[connection signal="area_entered" from="Area2D" to="Player" method="_on_area_2d_area_entered"]
-[connection signal="area_exited" from="Area2D" to="Player" method="_on_area_2d_area_exited"]
+[connection signal="area_entered" from="Sign1" to="Player" method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="Sign1" to="Player" method="_on_area_2d_area_exited"]
+[connection signal="body_entered" from="Door_to_final" to="Door_to_final" method="_on_body_entered"]

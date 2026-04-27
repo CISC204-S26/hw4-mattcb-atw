@@ -164,7 +164,7 @@ size = Vector2(42, 36)
 size = Vector2(30, 27)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5fe4s"]
-size = Vector2(74, 59)
+size = Vector2(253, 199.5)
 
 [node name="Node2D" type="Node2D" unique_id=2101664708]
 
@@ -189,7 +189,7 @@ position = Vector2(0, 2)
 shape = SubResource("RectangleShape2D_x6ohq")
 
 [node name="Door_back_to_main" type="Area2D" parent="." unique_id=1145986419]
-position = Vector2(-58, 122)
+position = Vector2(-57, 124)
 script = ExtResource("6_x6ohq")
 next_scene = "res://Main_Room.tscn"
 
@@ -198,12 +198,20 @@ position = Vector2(-373, 118)
 shape = SubResource("RectangleShape2D_ud0qm")
 
 [node name="Second_Room_Trigger" type="Area2D" parent="." unique_id=594779950]
-position = Vector2(-42, 43)
+position = Vector2(-312, 274)
 script = ExtResource("7_ud0qm")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Second_Room_Trigger" unique_id=2047141807]
-position = Vector2(-10, -3)
+position = Vector2(-91.5, -83.25)
 shape = SubResource("RectangleShape2D_5fe4s")
+
+[node name="Room2Text" type="Label" parent="." unique_id=168157922]
+visible = false
+light_mask = 2
+visibility_layer = 2
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Room 3 Complete"
 
 [connection signal="body_entered" from="Door_back_to_main" to="Door_back_to_main" method="_on_body_entered"]
 [connection signal="body_entered" from="Second_Room_Trigger" to="Second_Room_Trigger" method="_on_body_entered"]

@@ -17,6 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://dnegjhge3fbc7" path="res://Tileset/Torch.png" id="15_et5j1"]
 [ext_resource type="Texture2D" uid="uid://bneorw66wudw6" path="res://Tileset/Trapdoor.png" id="16_gtdm0"]
 [ext_resource type="Script" uid="uid://ciemnoauacirp" path="res://Door.gd" id="17_0dbyx"]
+[ext_resource type="Script" uid="uid://bftruonv0dxsk" path="res://room_trigger_2.gd" id="18_y5kku"]
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_48huu"]
 
@@ -385,6 +386,9 @@ size = Vector2(30, 50.5)
 [sub_resource type="CircleShape2D" id="CircleShape2D_0dbyx"]
 radius = 18.0
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3lhdt"]
+size = Vector2(174, 83)
+
 [node name="Node2D" type="Node2D" unique_id=321926150]
 
 [node name="Player" parent="." unique_id=991010574 instance=ExtResource("1_n8psv")]
@@ -443,6 +447,25 @@ shape = SubResource("RectangleShape2D_0dbyx")
 position = Vector2(600, 183)
 shape = SubResource("CircleShape2D_0dbyx")
 
+[node name="Room_trigger2" type="Area2D" parent="." unique_id=655610063]
+position = Vector2(336, 403)
+script = ExtResource("18_y5kku")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Room_trigger2" unique_id=901977052]
+position = Vector2(39, 2.5)
+shape = SubResource("RectangleShape2D_3lhdt")
+
+[node name="Room1Text" type="Label" parent="." unique_id=545664302]
+visible = false
+light_mask = 2
+visibility_layer = 2
+offset_left = 504.0
+offset_top = 367.0
+offset_right = 641.0
+offset_bottom = 390.0
+text = "Room 3 Complete"
+
 [connection signal="body_entered" from="Door_back_to_main" to="Door_back_to_main" method="_on_body_entered"]
 [connection signal="area_entered" from="Area2D" to="Player" method="_on_area_2d_area_entered"]
 [connection signal="area_exited" from="Area2D" to="Player" method="_on_area_2d_area_exited"]
+[connection signal="body_entered" from="Room_trigger2" to="Room_trigger2" method="_on_body_entered"]
