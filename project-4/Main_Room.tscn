@@ -17,6 +17,9 @@
 [ext_resource type="Texture2D" uid="uid://dnegjhge3fbc7" path="res://Tileset/Torch.png" id="15_rxehy"]
 [ext_resource type="Texture2D" uid="uid://bneorw66wudw6" path="res://Tileset/Trapdoor.png" id="16_tpgmm"]
 [ext_resource type="Script" uid="uid://ciemnoauacirp" path="res://Door.gd" id="17_qkgo3"]
+[ext_resource type="Script" uid="uid://hw38ks32b8mc" path="res://ReadableObject.gd" id="18_u6e1d"]
+[ext_resource type="Texture2D" uid="uid://dygdseqa0kfnh" path="res://larp.jpeg" id="19_0xe44"]
+[ext_resource type="Script" uid="uid://ceocn4knqrhhx" path="res://area_2d.gd" id="20_j170h"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qkgo3"]
 size = Vector2(42, 36)
@@ -391,6 +394,11 @@ radius = 25.019993
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u6e1d"]
 size = Vector2(47, 37.5)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3wjaf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dng8x"]
+size = Vector2(20, 22)
+
 [node name="Node2D" type="Node2D" unique_id=321926150]
 
 [node name="Player" parent="." unique_id=991010574 instance=ExtResource("1_1usla")]
@@ -476,8 +484,32 @@ is_final_door = true
 position = Vector2(-1.5, -3.25)
 shape = SubResource("RectangleShape2D_u6e1d")
 
+[node name="Larpitem" type="Area2D" parent="." unique_id=947811835]
+position = Vector2(395, 254)
+script = ExtResource("18_u6e1d")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Larpitem" unique_id=285974587]
+position = Vector2(2, 1)
+shape = SubResource("RectangleShape2D_3wjaf")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1600750919]
+position = Vector2(397.00003, 255.00003)
+scale = Vector2(0.055999972, 0.059000026)
+texture = ExtResource("19_0xe44")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1356792752]
+position = Vector2(397, 256)
+script = ExtResource("20_j170h")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=901241759]
+position = Vector2(0, -1)
+shape = SubResource("RectangleShape2D_dng8x")
+
 [connection signal="body_entered" from="Door_to_side1" to="Door_to_side1" method="_on_body_entered"]
 [connection signal="body_entered" from="Door_to_side2" to="Door_to_side2" method="_on_body_entered"]
 [connection signal="area_entered" from="Sign1" to="Player" method="_on_area_2d_area_entered"]
 [connection signal="area_exited" from="Sign1" to="Player" method="_on_area_2d_area_exited"]
 [connection signal="body_entered" from="Door_to_final" to="Door_to_final" method="_on_body_entered"]
+[connection signal="body_entered" from="Larpitem" to="Larpitem" method="_on_body_entered"]
+[connection signal="body_exited" from="Larpitem" to="Larpitem" method="_on_body_exited"]
+[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
