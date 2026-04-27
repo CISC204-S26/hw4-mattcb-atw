@@ -16,6 +16,9 @@
 [ext_resource type="Texture2D" uid="uid://def5puuy3qvra" path="res://Tileset/DoubleDoor.png" id="14_4ttov"]
 [ext_resource type="Texture2D" uid="uid://dnegjhge3fbc7" path="res://Tileset/Torch.png" id="15_h2bmw"]
 [ext_resource type="Texture2D" uid="uid://bneorw66wudw6" path="res://Tileset/Trapdoor.png" id="16_ait5p"]
+[ext_resource type="Script" uid="uid://hw38ks32b8mc" path="res://ReadableObject.gd" id="17_3lnn5"]
+[ext_resource type="Texture2D" uid="uid://dygdseqa0kfnh" path="res://larp.jpeg" id="18_xki0d"]
+[ext_resource type="Script" uid="uid://ceocn4knqrhhx" path="res://area_2d.gd" id="19_0oqiv"]
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_48huu"]
 
@@ -378,6 +381,11 @@ sources/6 = SubResource("TileSetAtlasSource_48huu")
 sources/7 = SubResource("TileSetAtlasSource_6i4ek")
 sources/8 = SubResource("TileSetAtlasSource_q3ijw")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gpjcn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d4xcn"]
+size = Vector2(20, 22)
+
 [node name="Node2D" type="Node2D" unique_id=321926150]
 
 [node name="Player" parent="." unique_id=991010574 instance=ExtResource("1_dn33s")]
@@ -419,3 +427,76 @@ use_kinematic_bodies = true
 [node name="Above" type="TileMapLayer" parent="TileMap2" unique_id=143247820]
 tile_map_data = PackedByteArray("AAAYAAoABQAAAAAAAAAiAAoABQAAAAAAAAAlAAoABQAAAAAAAAAvAAoABQAAAAAAAAASAA4ACAAAAAAAAAASAA8ACAAAAAEAAAArAAoABgAFAAQAAAAsAAoABgAGAAQAAAAfAAoABgAEAAUAAAAgAAoABgAFAAUAAAAwAAsAAgAAAAEAAAAaAAsAAgAAAAEAAAASAAsAAgAAAAEAAAA1AAsAAgAAAAEAAAASAAwABgAGAAIAAAATAAwABgAGAAIAAAASAA0ABgAGAAIAAAATAA0ABgAGAAIAAAATAAsABgAGAAIAAAAUAAsABgAGAAIAAAAUAAwABgAGAAIAAAAVAAsABgAGAAIAAAA0AAsABgAGAAIAAAAzAAsABgAGAAIAAAAzAAwABgAGAAIAAAA0AAwABgAGAAIAAAA1AAwABgAGAAIAAAA1AA0ABgAGAAIAAAA0AA0ABgAGAAIAAAAyAAsABgAGAAIAAAA1AA4ABgAGAAIAAAAVABEABgABAAUAAAAgAAwABgABAAUAAAAyAA8ABgABAAUAAAAyABYABgABAAUAAAAoABsABgABAAUAAAAbABkABgABAAUAAAAqAAoABgAEAAMAAAAeAAoABgAEAAMAAAASABEABgAFAAIAAAASABAABgAFAAEAAAASABIABgAFAAEAAAASABMABgAFAAIAAAAjAAsABgABAAEAAAAkAAsABgACAAEAAAAjAAwABgABAAEAAAAkAAwABgACAAEAAAAjAA0ABgABAAEAAAAkAA0ABgACAAEAAAAjAA4ABgABAAEAAAAkAA4ABgACAAEAAAAjAA8ABgABAAEAAAAkAA8ABgACAAEAAAAjABAABgABAAEAAAAkABAABgACAAEAAAA1ABgACAAAAAAAAAA1ABkACAAAAAEAAAA1ABEAAAAAAAAAAAA1ABIAAAAAAAEAAAA2ABEAAAABAAAAAAA2ABIAAAABAAEAAAAUABoACAAAAAEAAAAUABkACAAAAAAAAAASABQABgAFAAEAAAASABUABgAFAAIAAAASABsACAAAAAAAAAA=")
 tile_set = SubResource("TileSet_dsreg")
+
+[node name="Larpitem" type="Area2D" parent="." unique_id=593267440]
+position = Vector2(482.99997, 432.74997)
+script = ExtResource("17_3lnn5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Larpitem" unique_id=946532267]
+position = Vector2(2, 1)
+shape = SubResource("RectangleShape2D_gpjcn")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1640428175]
+position = Vector2(485, 433.75)
+scale = Vector2(0.055999972, 0.059000026)
+texture = ExtResource("18_xki0d")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=249266466]
+position = Vector2(484.99997, 434.74997)
+script = ExtResource("19_0oqiv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1334514829]
+position = Vector2(0, -1)
+shape = SubResource("RectangleShape2D_d4xcn")
+
+[node name="Larpitem2" type="Area2D" parent="." unique_id=1081408378]
+position = Vector2(699, 229)
+script = ExtResource("17_3lnn5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Larpitem2" unique_id=772499078]
+position = Vector2(2, 1)
+shape = SubResource("RectangleShape2D_gpjcn")
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=718364691]
+position = Vector2(702, 232)
+scale = Vector2(0.055999972, 0.059000026)
+texture = ExtResource("18_xki0d")
+
+[node name="Area2D2" type="Area2D" parent="." unique_id=940342663]
+position = Vector2(701, 231)
+script = ExtResource("19_0oqiv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2" unique_id=1021029108]
+position = Vector2(0, -1)
+shape = SubResource("RectangleShape2D_d4xcn")
+
+[node name="Larpitem3" type="Area2D" parent="." unique_id=638284465]
+position = Vector2(395, 254)
+script = ExtResource("17_3lnn5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Larpitem3" unique_id=194267640]
+position = Vector2(2, 1)
+shape = SubResource("RectangleShape2D_gpjcn")
+
+[node name="Sprite2D3" type="Sprite2D" parent="." unique_id=179001224]
+position = Vector2(397.00003, 255.00003)
+scale = Vector2(0.055999972, 0.059000026)
+texture = ExtResource("18_xki0d")
+
+[node name="Area2D3" type="Area2D" parent="." unique_id=1402059313]
+position = Vector2(397, 256)
+script = ExtResource("19_0oqiv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D3" unique_id=155711779]
+position = Vector2(0, -1)
+shape = SubResource("RectangleShape2D_d4xcn")
+
+[connection signal="body_entered" from="Larpitem" to="Larpitem" method="_on_body_entered"]
+[connection signal="body_exited" from="Larpitem" to="Larpitem" method="_on_body_exited"]
+[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
+[connection signal="body_entered" from="Larpitem2" to="Larpitem2" method="_on_body_entered"]
+[connection signal="body_exited" from="Larpitem2" to="Larpitem2" method="_on_body_exited"]
+[connection signal="body_entered" from="Area2D2" to="Area2D2" method="_on_body_entered"]
+[connection signal="body_entered" from="Larpitem3" to="Larpitem3" method="_on_body_entered"]
+[connection signal="body_exited" from="Larpitem3" to="Larpitem3" method="_on_body_exited"]
+[connection signal="body_entered" from="Area2D3" to="Area2D3" method="_on_body_entered"]

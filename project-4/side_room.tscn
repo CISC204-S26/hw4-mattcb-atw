@@ -18,6 +18,11 @@
 [ext_resource type="Texture2D" uid="uid://bneorw66wudw6" path="res://Tileset/Trapdoor.png" id="16_gtdm0"]
 [ext_resource type="Script" uid="uid://ciemnoauacirp" path="res://Door.gd" id="17_0dbyx"]
 [ext_resource type="Script" uid="uid://bftruonv0dxsk" path="res://room_trigger_2.gd" id="18_y5kku"]
+[ext_resource type="Script" uid="uid://hw38ks32b8mc" path="res://ReadableObject.gd" id="19_1448b"]
+[ext_resource type="Texture2D" uid="uid://d3styk0trvuqf" path="res://images.jpeg" id="20_b2bsv"]
+[ext_resource type="Script" uid="uid://ceocn4knqrhhx" path="res://area_2d.gd" id="21_icnce"]
+[ext_resource type="Texture2D" uid="uid://l61ap1n4lsqd" path="res://images2.jpeg" id="22_vqikx"]
+[ext_resource type="Texture2D" uid="uid://dar4cmqw3ynsu" path="res://hqdefault.jpg" id="23_srew3"]
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_48huu"]
 
@@ -389,6 +394,11 @@ radius = 18.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3lhdt"]
 size = Vector2(174, 83)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gtpwr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8vpfd"]
+size = Vector2(20, 22)
+
 [node name="Node2D" type="Node2D" unique_id=321926150]
 
 [node name="Player" parent="." unique_id=991010574 instance=ExtResource("1_n8psv")]
@@ -465,7 +475,79 @@ offset_right = 641.0
 offset_bottom = 390.0
 text = "Room 3 Complete"
 
+[node name="Larpitem" type="Area2D" parent="." unique_id=1994376523]
+position = Vector2(758, 295)
+script = ExtResource("19_1448b")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Larpitem" unique_id=648905385]
+position = Vector2(2, 1)
+shape = SubResource("RectangleShape2D_gtpwr")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1646697808]
+position = Vector2(764, 297)
+scale = Vector2(0.055999972, 0.059000026)
+texture = ExtResource("20_b2bsv")
+
+[node name="Area2D2" type="Area2D" parent="." unique_id=544226474]
+position = Vector2(760, 297)
+script = ExtResource("21_icnce")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2" unique_id=1450748880]
+position = Vector2(4, -1)
+shape = SubResource("RectangleShape2D_8vpfd")
+
+[node name="Larpitem2" type="Area2D" parent="." unique_id=1409038353]
+position = Vector2(578, 411.74997)
+script = ExtResource("19_1448b")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Larpitem2" unique_id=18666518]
+position = Vector2(2, 1)
+shape = SubResource("RectangleShape2D_gtpwr")
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=226084053]
+position = Vector2(580, 412.75)
+scale = Vector2(0.055999972, 0.059000026)
+texture = ExtResource("22_vqikx")
+
+[node name="Area2D3" type="Area2D" parent="." unique_id=512170762]
+position = Vector2(580, 413.74997)
+script = ExtResource("21_icnce")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D3" unique_id=1535087210]
+position = Vector2(0, -1)
+shape = SubResource("RectangleShape2D_8vpfd")
+
+[node name="Larpitem3" type="Area2D" parent="." unique_id=600314571]
+position = Vector2(395, 254)
+script = ExtResource("19_1448b")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Larpitem3" unique_id=824929085]
+position = Vector2(2, 1)
+shape = SubResource("RectangleShape2D_gtpwr")
+
+[node name="Sprite2D3" type="Sprite2D" parent="." unique_id=612282885]
+position = Vector2(397.00003, 255.00003)
+scale = Vector2(0.055999972, 0.059000026)
+texture = ExtResource("23_srew3")
+
+[node name="Area2D4" type="Area2D" parent="." unique_id=11861566]
+position = Vector2(397, 256)
+script = ExtResource("21_icnce")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D4" unique_id=167436994]
+position = Vector2(0, -1)
+shape = SubResource("RectangleShape2D_8vpfd")
+
 [connection signal="body_entered" from="Door_back_to_main" to="Door_back_to_main" method="_on_body_entered"]
 [connection signal="area_entered" from="Area2D" to="Player" method="_on_area_2d_area_entered"]
 [connection signal="area_exited" from="Area2D" to="Player" method="_on_area_2d_area_exited"]
 [connection signal="body_entered" from="Room_trigger2" to="Room_trigger2" method="_on_body_entered"]
+[connection signal="body_entered" from="Larpitem" to="Larpitem" method="_on_body_entered"]
+[connection signal="body_exited" from="Larpitem" to="Larpitem" method="_on_body_exited"]
+[connection signal="body_entered" from="Area2D2" to="Area2D2" method="_on_body_entered"]
+[connection signal="body_entered" from="Larpitem2" to="Larpitem2" method="_on_body_entered"]
+[connection signal="body_exited" from="Larpitem2" to="Larpitem2" method="_on_body_exited"]
+[connection signal="body_entered" from="Area2D3" to="Area2D3" method="_on_body_entered"]
+[connection signal="body_entered" from="Larpitem3" to="Larpitem3" method="_on_body_entered"]
+[connection signal="body_exited" from="Larpitem3" to="Larpitem3" method="_on_body_exited"]
+[connection signal="body_entered" from="Area2D4" to="Area2D4" method="_on_body_entered"]

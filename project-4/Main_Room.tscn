@@ -18,7 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://bneorw66wudw6" path="res://Tileset/Trapdoor.png" id="16_tpgmm"]
 [ext_resource type="Script" uid="uid://ciemnoauacirp" path="res://Door.gd" id="17_qkgo3"]
 [ext_resource type="Script" uid="uid://hw38ks32b8mc" path="res://ReadableObject.gd" id="18_u6e1d"]
-[ext_resource type="Texture2D" uid="uid://dygdseqa0kfnh" path="res://larp.jpeg" id="19_0xe44"]
+[ext_resource type="Texture2D" uid="uid://l61ap1n4lsqd" path="res://images2.jpeg" id="19_0xe44"]
 [ext_resource type="Script" uid="uid://ceocn4knqrhhx" path="res://area_2d.gd" id="20_j170h"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qkgo3"]
