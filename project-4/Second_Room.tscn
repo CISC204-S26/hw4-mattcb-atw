@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://daqxid8pcki7v" path="res://Tileset/Decor.png" id="4_v7ogr"]
 [ext_resource type="PackedScene" uid="uid://b7mw1k6j17rwh" path="res://character_body_2d.tscn" id="5_wmn11"]
 [ext_resource type="Script" uid="uid://ciemnoauacirp" path="res://Door.gd" id="6_x6ohq"]
+[ext_resource type="Script" uid="uid://diyyw1a6qedrc" path="res://second_room_trigger.gd" id="7_ud0qm"]
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_i0swb"]
 
@@ -162,6 +163,9 @@ size = Vector2(42, 36)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ud0qm"]
 size = Vector2(30, 27)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5fe4s"]
+size = Vector2(74, 59)
+
 [node name="Node2D" type="Node2D" unique_id=2101664708]
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=264964927]
@@ -178,19 +182,28 @@ layer_0/tile_data = PackedInt32Array(131074, 1, 0, -327694, 1, 0, -458742, 1, 1,
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1241994745]
 
 [node name="Player" parent="." unique_id=991010574 instance=ExtResource("5_wmn11")]
-position = Vector2(0, 3)
+position = Vector2(2, 4)
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Player" unique_id=196849757]
-position = Vector2(0, -1)
+position = Vector2(0, 2)
 shape = SubResource("RectangleShape2D_x6ohq")
 
 [node name="Door_back_to_main" type="Area2D" parent="." unique_id=1145986419]
-position = Vector2(-62, 118)
+position = Vector2(-58, 122)
 script = ExtResource("6_x6ohq")
 next_scene = "res://Main_Room.tscn"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Door_back_to_main" unique_id=632593252]
-position = Vector2(-371, 121)
+position = Vector2(-373, 118)
 shape = SubResource("RectangleShape2D_ud0qm")
 
+[node name="Second_Room_Trigger" type="Area2D" parent="." unique_id=594779950]
+position = Vector2(-42, 43)
+script = ExtResource("7_ud0qm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Second_Room_Trigger" unique_id=2047141807]
+position = Vector2(-10, -3)
+shape = SubResource("RectangleShape2D_5fe4s")
+
 [connection signal="body_entered" from="Door_back_to_main" to="Door_back_to_main" method="_on_body_entered"]
+[connection signal="body_entered" from="Second_Room_Trigger" to="Second_Room_Trigger" method="_on_body_entered"]
