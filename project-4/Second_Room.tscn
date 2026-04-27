@@ -4,6 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://dqmsxma0vgirs" path="res://Tileset/Walls.png" id="2_cxops"]
 [ext_resource type="Texture2D" uid="uid://bneorw66wudw6" path="res://Tileset/Trapdoor.png" id="3_v7ogr"]
 [ext_resource type="Texture2D" uid="uid://daqxid8pcki7v" path="res://Tileset/Decor.png" id="4_v7ogr"]
+[ext_resource type="PackedScene" uid="uid://b7mw1k6j17rwh" path="res://character_body_2d.tscn" id="5_wmn11"]
+[ext_resource type="Script" uid="uid://ciemnoauacirp" path="res://Door.gd" id="6_x6ohq"]
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_i0swb"]
 
@@ -154,10 +156,16 @@ sources/4 = SubResource("TileSetScenesCollectionSource_ud0qm")
 sources/5 = SubResource("TileSetAtlasSource_5fe4s")
 sources/6 = SubResource("TileSetAtlasSource_wmn11")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x6ohq"]
+size = Vector2(42, 36)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ud0qm"]
+size = Vector2(30, 27)
+
 [node name="Node2D" type="Node2D" unique_id=2101664708]
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=264964927]
-zoom = Vector2(2, 2)
+zoom = Vector2(0.75, 0.75)
 
 [node name="TileMap" type="TileMap" parent="." unique_id=358573894]
 scale = Vector2(2, 2)
@@ -168,3 +176,21 @@ layer_0/tile_data = PackedInt32Array(131074, 1, 0, -327694, 1, 0, -458742, 1, 1,
 [node name="Area2D" type="Area2D" parent="." unique_id=514799710]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1241994745]
+
+[node name="Player" parent="." unique_id=991010574 instance=ExtResource("5_wmn11")]
+position = Vector2(0, 3)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Player" unique_id=196849757]
+position = Vector2(0, -1)
+shape = SubResource("RectangleShape2D_x6ohq")
+
+[node name="Door_back_to_main" type="Area2D" parent="." unique_id=1145986419]
+position = Vector2(-62, 118)
+script = ExtResource("6_x6ohq")
+next_scene = "res://Main_Room.tscn"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Door_back_to_main" unique_id=632593252]
+position = Vector2(-371, 121)
+shape = SubResource("RectangleShape2D_ud0qm")
+
+[connection signal="body_entered" from="Door_back_to_main" to="Door_back_to_main" method="_on_body_entered"]
