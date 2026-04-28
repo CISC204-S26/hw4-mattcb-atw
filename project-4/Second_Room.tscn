@@ -172,9 +172,10 @@ size = Vector2(30, 27)
 size = Vector2(253, 199.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5ojm3"]
+size = Vector2(52.99997, 49)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e0p0d"]
-size = Vector2(20, 22)
+size = Vector2(63, 79.5)
 
 [node name="Node2D" type="Node2D" unique_id=2101664708]
 
@@ -228,12 +229,12 @@ position = Vector2(199.99997, 220.74997)
 script = ExtResource("8_rw1yj")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Larpitem" unique_id=1292297358]
-position = Vector2(2, 1)
+position = Vector2(-276.99997, -25.74997)
 shape = SubResource("RectangleShape2D_5ojm3")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=452237716]
-position = Vector2(202.00002, 221.75)
-scale = Vector2(0.055999972, 0.059000026)
+position = Vector2(334, 217.00002)
+scale = Vector2(0.12599996, 0.121)
 texture = ExtResource("9_i6ykc")
 
 [node name="Area2D2" type="Area2D" parent="." unique_id=1591632167]
@@ -241,20 +242,20 @@ position = Vector2(189, 281)
 script = ExtResource("10_41suy")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2" unique_id=1529169181]
-position = Vector2(-145, -45)
+position = Vector2(-109.5, -53.5)
 shape = SubResource("RectangleShape2D_e0p0d")
 
 [node name="Larpitem2" type="Area2D" parent="." unique_id=11043064]
-position = Vector2(338, 272)
+position = Vector2(457, 276)
 script = ExtResource("8_rw1yj")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Larpitem2" unique_id=1204776503]
-position = Vector2(-136.99997, -51)
+position = Vector2(-120.499985, -65.5)
 shape = SubResource("RectangleShape2D_5ojm3")
 
 [node name="Sprite2D2" type="Sprite2D" parent="." unique_id=824136079]
-position = Vector2(46.000015, 236)
-scale = Vector2(0.055999972, 0.059000026)
+position = Vector2(81, 225)
+scale = Vector2(0.08999995, 0.0995)
 texture = ExtResource("9_i6ykc")
 
 [node name="Area2D3" type="Area2D" parent="." unique_id=1907744158]
@@ -262,7 +263,7 @@ position = Vector2(267, 61)
 script = ExtResource("10_41suy")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D3" unique_id=1771236299]
-position = Vector2(125, 25)
+position = Vector2(127, -265)
 shape = SubResource("RectangleShape2D_e0p0d")
 
 [node name="Larpitem3" type="Area2D" parent="." unique_id=253487897]
@@ -274,8 +275,8 @@ position = Vector2(2, 1)
 shape = SubResource("RectangleShape2D_5ojm3")
 
 [node name="Sprite2D3" type="Sprite2D" parent="." unique_id=1235462683]
-position = Vector2(-482.9999, -130.24997)
-scale = Vector2(0.055999972, 0.059000026)
+position = Vector2(-495.00003, -120)
+scale = Vector2(0.27385888, 0.3157895)
 texture = ExtResource("11_f6kie")
 
 [node name="Area2D4" type="Area2D" parent="." unique_id=1069788856]
@@ -283,28 +284,28 @@ position = Vector2(-483, -129.25003)
 script = ExtResource("10_41suy")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D4" unique_id=1954700301]
-position = Vector2(1, -2)
+position = Vector2(-7, 9.2500305)
 shape = SubResource("RectangleShape2D_e0p0d")
 
 [node name="Larpitem4" type="Area2D" parent="." unique_id=190395652]
-position = Vector2(237.99997, -175.25003)
+position = Vector2(254, -174)
 script = ExtResource("8_rw1yj")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Larpitem4" unique_id=75650287]
-position = Vector2(2, 1)
+position = Vector2(131.00003, -5.7499695)
 shape = SubResource("RectangleShape2D_5ojm3")
 
 [node name="Sprite2D4" type="Sprite2D" parent="." unique_id=179052846]
-position = Vector2(240.00002, -174.24997)
-scale = Vector2(0.055999972, 0.059000026)
+position = Vector2(383, -215)
+scale = Vector2(0.32133326, 0.36616683)
 texture = ExtResource("12_bxipb")
 
 [node name="Area2D5" type="Area2D" parent="." unique_id=187807905]
-position = Vector2(239.99997, -173.25003)
+position = Vector2(292, 137)
 script = ExtResource("10_41suy")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D5" unique_id=2105333197]
-position = Vector2(0, -1)
+position = Vector2(41, 78)
 shape = SubResource("RectangleShape2D_e0p0d")
 
 [connection signal="body_entered" from="Door_back_to_main" to="Door_back_to_main" method="_on_body_entered"]

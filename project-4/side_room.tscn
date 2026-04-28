@@ -397,7 +397,7 @@ size = Vector2(174, 83)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gtpwr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8vpfd"]
-size = Vector2(20, 22)
+size = Vector2(39, 38)
 
 [node name="Node2D" type="Node2D" unique_id=321926150]
 
@@ -518,24 +518,24 @@ position = Vector2(0, -1)
 shape = SubResource("RectangleShape2D_8vpfd")
 
 [node name="Larpitem3" type="Area2D" parent="." unique_id=600314571]
-position = Vector2(395, 254)
+position = Vector2(396, 256)
 script = ExtResource("19_1448b")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Larpitem3" unique_id=824929085]
-position = Vector2(2, 1)
+position = Vector2(328, 156)
 shape = SubResource("RectangleShape2D_gtpwr")
 
 [node name="Sprite2D3" type="Sprite2D" parent="." unique_id=612282885]
-position = Vector2(397.00003, 255.00003)
-scale = Vector2(0.055999972, 0.059000026)
+position = Vector2(733, 411)
+scale = Vector2(0.105083235, 0.10727785)
 texture = ExtResource("23_srew3")
 
 [node name="Area2D4" type="Area2D" parent="." unique_id=11861566]
-position = Vector2(397, 256)
+position = Vector2(731, 410)
 script = ExtResource("21_icnce")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D4" unique_id=167436994]
-position = Vector2(0, -1)
+position = Vector2(10.5, -3)
 shape = SubResource("RectangleShape2D_8vpfd")
 
 [connection signal="body_entered" from="Door_back_to_main" to="Door_back_to_main" method="_on_body_entered"]
